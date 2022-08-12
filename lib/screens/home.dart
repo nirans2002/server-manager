@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 
 import 'package:server_manager/model/model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ServersPage extends StatefulWidget {
   const ServersPage({Key? key}) : super(key: key);
@@ -27,8 +28,7 @@ class _ServersPageState extends State<ServersPage> {
       // Uri.parse('https://62f6284e612c13062b47b483.mockapi.io/tunnels'),
       Uri.parse('https://api.ngrok.com/tunnels'),
       headers: {
-        HttpHeaders.authorizationHeader:
-            'Bearer 2DFAs4a94pBhHYEeIJg5g0xG6ao_4afsyHGvaubb7NpxBLHb7',
+        HttpHeaders.authorizationHeader: 'Bearer ${dotenv.env['API_TOKEN']}',
         HttpHeaders.contentTypeHeader: 'application/json',
         "Ngrok-Version": "2",
       },
@@ -83,7 +83,7 @@ class _ServersPageState extends State<ServersPage> {
                     title: Text(
                       tunnel.id.toString(),
                     ),
-                    subtitle: Text(tunnel.public_url),
+                    subtitle: SelectableText(tunnel.public_url),
                   );
                 }),
       ),
