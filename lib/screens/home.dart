@@ -53,7 +53,7 @@ class _ServersPageState extends State<ServersPage> {
   @override
   void initState() {
     super.initState();
-    getData();
+    
   }
 
   @override
@@ -64,7 +64,7 @@ class _ServersPageState extends State<ServersPage> {
         title: const Text('Server'),
         centerTitle: true,
         actions: [
-          ElevatedButton(
+          TextButton(
               onPressed: () {
                 getData();
               },
