@@ -53,7 +53,7 @@ class _ServersPageState extends State<ServersPage> {
   @override
   void initState() {
     super.initState();
-    
+    getData();
   }
 
   @override
